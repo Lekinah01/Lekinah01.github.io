@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lekinah Gwangwa | AI and Automation</title>
+<meta name="description" content="Lekinah Gwangwa is an AI and automation specialist and systems architect in Port Elizabeth, South Africa. Founder of INTEGREIGHT.">
+<meta property="og:title" content="Lekinah Gwangwa | AI and Automation Specialist">
+<meta property="og:description" content="I connect the software your business already uses and automate the work in between.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a calm architect's page. Hero states the problem, projects are read as system flows, experience is a plain ledger. Colours and type follow the INTEGREIGHT brand guide. */
+:root{
+  --bg:#F6F6F2;
+  --surface:#EFEFEA;
+  --card:#FFFFFF;
+  --ink:#1A1A18;
+  --muted:#5A5A56;
+  --accent:#1D9E75;
+  --accent-text:#0F6E56;
+  --accent-soft:#E1F5EE;
+  --accent-deep:#085041;
+  --line:#DCDCD3;
+  --display:'Syne', 'Helvetica Neue', Arial, sans-serif;
+  --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'JetBrains Mono', Consolas, 'Courier New', monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141412;
+    --surface:#1F1F1C;
+    --card:#1A1A18;
+    --ink:#F1F1EA;
+    --muted:#A6A69E;
+    --accent:#2FBF92;
+    --accent-text:#4FD1A6;
+    --accent-soft:#10392D;
+    --accent-deep:#A6EBD2;
+    --line:#33332E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141412;
+  --surface:#1F1F1C;
+  --card:#1A1A18;
+  --ink:#F1F1EA;
+  --muted:#A6A69E;
+  --accent:#2FBF92;
+  --accent-text:#4FD1A6;
+  --accent-soft:#10392D;
+  --accent-deep:#A6EBD2;
+  --line:#33332E;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-text);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;text-wrap:balance;letter-spacing:-.01em}
+p{max-width:64ch}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+
+/* header */
+header.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.mark{font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;color:var(--ink)}
+.mark span{color:var(--accent)}
+nav{display:flex;gap:22px;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+@media (max-width:680px){nav a:not(.keep){display:none}}
+
+/* hero */
+.hero{padding:76px 0 60px}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--card)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{font-weight:800;font-size:clamp(38px,7.2vw,76px);line-height:1.04;letter-spacing:-.025em;margin:26px 0 24px;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(18px,2.2vw,21px);line-height:1.55;max-width:60ch}
+.roles{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:18px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:13px 22px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;font-family:var(--body);cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--accent-text);border-color:var(--accent-text);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:48px}
+.proof div{border-top:2px solid var(--accent);padding-top:12px}
+.proof b{display:block;font-family:var(--display);font-size:22px;font-weight:700}
+.proof span{font-size:14px;color:var(--muted)}
+
+/* sections */
+section.block{padding:64px 0;border-top:1px solid var(--line)}
+section.block h2{font-size:clamp(28px,4.2vw,40px);margin:10px 0 24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.how h3{font-size:19px;margin-bottom:8px}
+.how p{font-size:15.5px;color:var(--muted)}
+
+/* projects */
+.projects{display:flex;flex-direction:column;gap:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{text-align:left;font:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 14px;color:var(--ink);cursor:pointer}
+.tabs button small{display:block;font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+.tabs button b{font-family:var(--display);font-weight:700;font-size:16.5px;line-height:1.2}
+.tabs button[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+.tabs button[aria-selected="true"] small{color:var(--accent-deep)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
+.panel[hidden]{display:none}
+.panel h3{font-size:26px;margin:8px 0 14px}
+.badge{display:inline-block;font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;background:var(--accent-soft);color:var(--accent-deep);border-radius:999px;padding:3px 10px;margin-left:8px;vertical-align:middle}
+.panel h4{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+.flow{list-style:none;display:flex;flex-wrap:wrap;gap:10px 8px;counter-reset:s}
+.flow li{counter-increment:s;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 13px 9px 34px;font-size:14.5px;line-height:1.35}
+.flow li::before{content:counter(s);position:absolute;left:10px;top:9px;font-family:var(--mono);font-size:12px;color:var(--accent-text)}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:8px;color:var(--accent-text);font-size:14px}
+.flow li:not(:last-child){margin-right:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink);background:var(--card)}
+.note{margin-top:22px;font-size:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:14px}
+.tabs .group{flex:0 0 100%;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 2px 0}
+.tabs .group:first-child{padding-top:0}
+.panel ul.list{padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:66ch}
+.panel ul.list li::marker{color:var(--accent)}
+.panel code{font-family:var(--mono);font-size:.9em;background:var(--surface);padding:1px 6px;border-radius:4px}
+
+/* experience */
+.ledger{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:230px 1fr;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--line)}
+.row:first-child{padding-top:0}
+@media (max-width:760px){.row{grid-template-columns:1fr}}
+.row .meta{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.row h3{font-size:21px;margin-bottom:2px}
+.row .org{color:var(--accent-text);font-weight:500;margin-bottom:10px}
+.row ul{padding-left:20px;display:flex;flex-direction:column;gap:6px;color:var(--ink);max-width:66ch}
+.row li::marker{color:var(--accent)}
+
+/* skills */
+.skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.skillgrid h3{font-size:16px;margin-bottom:10px}
+
+/* writing */
+.writing{background:var(--surface);border-radius:14px;padding:30px}
+.writing h3{font-size:24px;margin-bottom:10px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-top:none}
+.contact .label{color:var(--accent)}
+.contact h2{color:var(--bg);font-size:clamp(30px,5vw,52px)}
+.contact p{color:color-mix(in srgb, var(--bg) 80%, transparent)}
+.links{display:flex;flex-direction:column;max-width:520px;margin-top:26px}
+.links a,.links button{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 0;border:0;border-bottom:1px solid color-mix(in srgb, var(--bg) 22%, transparent);background:none;text-decoration:none;color:var(--bg);font:inherit;font-weight:500;text-align:left;cursor:pointer}
+.links span{font-family:var(--mono);font-size:13px;color:color-mix(in srgb, var(--bg) 70%, transparent)}
+.links a:hover span,.links button:hover span{color:var(--accent)}
+footer{background:var(--ink);color:color-mix(in srgb, var(--bg) 65%, transparent);padding:22px 0 40px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-top:1px solid color-mix(in srgb, var(--bg) 18%, transparent);padding-top:20px}
+
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:transform .15s, background .15s, color .15s}
+  .dot{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">Lekinah Gwangwa<span>.</span></a>
+    <nav aria-label="Sections">
+      <a href="#how">Approach</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#beyond">Beyond systems</a>
+      <a class="keep" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div class="status"><span class="dot" aria-hidden="true"></span><span>Port Elizabeth, South Africa · <span id="clock">local time</span> · remote, works with SA, UK and US hours</span></div>
+      <h1>Your team shouldn't be the bridge between your <em>software.</em></h1>
+      <p class="lede">I'm Lekinah. I design and build the automations that connect your CRM, messaging, forms and reporting, so nobody re-types the same data twice. I do this for US healthcare clients at ClinicGrower, and I run INTEGREIGHT™, an automation consultancy serving professional service firms in South Africa and the UK.</p>
+      <p class="roles">Systems &amp; Automation Specialist · API Integrations · Workflow Automation</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See the projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <div class="proof">
+        <div><b>Since 2025</b><span>Systems and automation at ClinicGrower</span></div>
+        <div><b>US clients</b><span>Remote-first, documented, on US hours</span></div>
+        <div><b>SA + UK</b><span>Markets served by INTEGREIGHT™</span></div>
+        <div><b>Diploma in IT</b><span>Nelson Mandela University</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="label">Approach</div>
+      <h2>I map the workflow before I touch a platform.</h2>
+      <div class="how">
+        <div><h3>Find the bottleneck first</h3><p>I trace where work is duplicated, delayed or dropped, then choose the tools. The workflow decides the stack, not the other way round.</p></div>
+        <div><h3>One source of truth</h3><p>Integrations that keep leads, clients and conversations in a single place, so teams stop checking five apps for one answer.</p></div>
+        <div><h3>Reliable in production</h3><p>Triggers, pipelines and multi-channel flows come with QA, so they keep working after the demo is over.</p></div>
+        <div><h3>Handed over, not hidden</h3><p>I write the SOPs and document the logic. Your team can run the system without me.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="label">Projects</div>
+      <h2>Real client work, and eight systems I've designed.</h2>
+      <p style="margin-bottom:28px;color:var(--muted)">The first four are projects from my work at ClinicGrower, with client names left out. The rest are INTEGREIGHT™ solution designs for firms in South Africa and the UK. Select one to see the problem and the flow.</p>
+
+      <div class="projects">
+        <div class="tabs" role="tablist" aria-label="Projects">
+          <div class="group" role="presentation">Client work at ClinicGrower</div>
+          <button role="tab" id="t8" aria-controls="p8" aria-selected="true"><small>Healthcare operations</small><b>Nextech &amp; GoHighLevel Integration</b></button>
+          <button role="tab" id="t9" aria-controls="p9" aria-selected="false"><small>Content automation</small><b>Multi-Client WordPress Publishing</b></button>
+          <button role="tab" id="t10" aria-controls="p10" aria-selected="false"><small>Compliance</small><b>A2P 10DLC Readiness</b></button>
+          <button role="tab" id="t11" aria-controls="p11" aria-selected="false"><small>Reporting</small><b>Stripe to Monday.com Client LTV</b></button>
+          <div class="group" role="presentation">INTEGREIGHT™ solution designs</div>
+          <button role="tab" id="t0" aria-controls="p0" aria-selected="false"><small>Medical &amp; aesthetic clinics</small><b>Patient Journey Engine</b></button>
+          <button role="tab" id="t1" aria-controls="p1" aria-selected="false"><small>Real estate &amp; property</small><b>Speed-to-Leads &amp; Leasing Hub</b></button>
+          <button role="tab" id="t2" aria-controls="p2" aria-selected="false"><small>Financial advisors</small><b>Compliance &amp; Review Harvester</b></button>
+          <button role="tab" id="t3" aria-controls="p3" aria-selected="false"><small>Engineering &amp; solar</small><b>Project Quote Pipeline</b></button>
+          <button role="tab" id="t4" aria-controls="p4" aria-selected="false"><small>Recruitment agencies</small><b>CV Intake Pipeline</b></button>
+          <button role="tab" id="t5" aria-controls="p5" aria-selected="false"><small>Accounting firms</small><b>Client Onboarding &amp; Document Chase</b></button>
+          <button role="tab" id="t6" aria-controls="p6" aria-selected="false"><small>Law firms</small><b>Matter Intake Pipeline</b></button>
+          <button role="tab" id="t7" aria-controls="p7" aria-selected="false"><small>Any service firm</small><b>Lead-to-Booking Engine</b></button>
+        </div>
+
+        <div>
+          <article class="panel" id="p0" role="tabpanel" aria-labelledby="t0" hidden>
+            <div class="label">Medical &amp; aesthetic clinics<span class="badge">Solution design</span></div>
+            <h3>Patient Journey Engine</h3>
+            <h4>The bottleneck</h4>
+            <p>High no-show rates. A front desk buried in repeat questions. Intake forms filled in on paper.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Booking made</li>
+              <li>WhatsApp confirmation, instantly</li>
+              <li>24-hour reminder</li>
+              <li>2-hour reminder</li>
+              <li>Digital pre-consultation form</li>
+              <li>Answers sync into GoHighLevel</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">WhatsApp</span><span class="chip">SMS</span><span class="chip">Make / n8n</span></div>
+            <p class="note"><b>UK version:</b> the same flow, with intake data handled under UK GDPR. Draws on my day-to-day work with healthcare marketing clients at ClinicGrower.</p>
+          </article>
+
+          <article class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+            <div class="label">Real estate &amp; property<span class="badge">Solution design</span></div>
+            <h3>Speed-to-Leads &amp; Leasing Hub</h3>
+            <h4>The bottleneck</h4>
+            <p>Portal enquiries from sites like Property24 sit uncontacted for hours. Agents chase tenants by hand for FICA documents and payslips.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Portal enquiry arrives</li>
+              <li>WhatsApp reply within 10 seconds</li>
+              <li>Viewing booked from a scheduler</li>
+              <li>Applicant gets a secure upload link</li>
+              <li>FICA and payslips collected</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">WhatsApp</span><span class="chip">Make / n8n</span><span class="chip">Document portal</span></div>
+            <p class="note"><b>UK version:</b> Rightmove and Zoopla enquiries in place of Property24, with ID and tenant reference documents collected under UK GDPR.</p>
+          </article>
+
+          <article class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+            <div class="label">Financial advisors &amp; wealth managers<span class="badge">Solution design</span></div>
+            <h3>Compliance &amp; Review Harvester</h3>
+            <h4>The bottleneck</h4>
+            <p>Annual reviews are hard to schedule. Email threads drag on while advisors chase IDs, proof of residence and FICA packs.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Annual review trigger fires</li>
+              <li>Client picks a review slot</li>
+              <li>WhatsApp request for documents</li>
+              <li>Make or n8n validates each file</li>
+              <li>Alert to the advisor if anything is missing</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">WhatsApp</span><span class="chip">Make / n8n</span></div>
+            <p class="note"><b>UK version:</b> ID and proof-of-address collection for UK anti-money-laundering checks in place of FICA, held under UK GDPR.</p>
+          </article>
+
+          <article class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+            <div class="label">Engineering &amp; solar contractors<span class="badge">Solution design</span></div>
+            <h3>Project Quote Pipeline</h3>
+            <h4>The bottleneck</h4>
+            <p>Quotes take too long. Site assessment data lives in separate places. Nobody tracks which deposits have come in.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Prospect submits a site-spec form</li>
+              <li>n8n webhook runs the calculation</li>
+              <li>Preliminary estimate sent through GoHighLevel</li>
+              <li>Deposit milestones tracked</li>
+              <li>Automatic deposit reminders</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">n8n webhooks</span><span class="chip">Forms</span></div>
+          </article>
+
+          <article class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+            <div class="label">Recruitment agencies<span class="badge">Solution design</span></div>
+            <h3>CV Intake Pipeline</h3>
+            <h4>The bottleneck</h4>
+            <p>Recruiters spend their day on admin instead of placements. CVs are re-keyed into the CRM by hand and candidates wait days for an update.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>CV arrives by email or form</li>
+              <li>Details extracted from the CV</li>
+              <li>Candidate record created in the CRM</li>
+              <li>Instant acknowledgement to the candidate</li>
+              <li>Status updates sent as the candidate moves stage</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">Make / n8n</span><span class="chip">OpenAI API</span><span class="chip">Email</span></div>
+            <p class="note"><b>UK version:</b> candidate data handled under UK GDPR, with consent and retention steps built into the flow.</p>
+          </article>
+
+          <article class="panel" id="p5" role="tabpanel" aria-labelledby="t5" hidden>
+            <div class="label">Accounting firms<span class="badge">Solution design</span></div>
+            <h3>Client Onboarding &amp; Document Chase</h3>
+            <h4>The bottleneck</h4>
+            <p>Onboarding a new client takes days of back-and-forth. Staff chase documents by email and track what is missing in a spreadsheet.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Client says yes</li>
+              <li>Welcome message and onboarding checklist sent</li>
+              <li>Document requests go out automatically</li>
+              <li>Reminders for anything still missing</li>
+              <li>Tasks created for the accountant</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">Make / n8n</span><span class="chip">Email</span><span class="chip">WhatsApp</span></div>
+          </article>
+
+          <article class="panel" id="p6" role="tabpanel" aria-labelledby="t6" hidden>
+            <div class="label">Law firms<span class="badge">Solution design</span></div>
+            <h3>Matter Intake Pipeline</h3>
+            <h4>The bottleneck</h4>
+            <p>Enquiries are handled differently by whoever picks them up. Intake is slow and opening a matter is manual admin.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Enquiry arrives</li>
+              <li>Instant reply and qualifying questions</li>
+              <li>Consultation booked</li>
+              <li>Conflict and ID documents requested</li>
+              <li>Matter opened and assigned</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">Make / n8n</span><span class="chip">Calendar</span><span class="chip">Document requests</span></div>
+          </article>
+
+          <article class="panel" id="p7" role="tabpanel" aria-labelledby="t7" hidden>
+            <div class="label">Any professional service firm<span class="badge">Solution design</span></div>
+            <h3>Lead-to-Booking Engine</h3>
+            <h4>The bottleneck</h4>
+            <p>Leads go cold because nobody replied fast enough or followed up. Opportunities disappear when someone forgets to send a message.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Lead reaches out</li>
+              <li>Instant WhatsApp or SMS reply</li>
+              <li>Lead qualified</li>
+              <li>Booked on the calendar</li>
+              <li>Confirmation and reminders sent</li>
+              <li>Follow-up if there is no reply</li>
+            </ol>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">WhatsApp</span><span class="chip">SMS</span><span class="chip">Calendar</span></div>
+          </article>
+
+          <article class="panel" id="p8" role="tabpanel" aria-labelledby="t8">
+            <div class="label">ClinicGrower · healthcare practice client<span class="badge">In progress</span></div>
+            <h3>Nextech EHR &amp; GoHighLevel Integration</h3>
+            <h4>The problem</h4>
+            <p>Patient information lived in several platforms and was tracked by hand, sometimes on sticky notes. Marketing leads couldn't be tied to the patients who actually showed up and paid.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Nextech Select API, OAuth 2.0</li>
+              <li>n8n pulls updated appointments and payments</li>
+              <li>Patients matched to GoHighLevel contacts</li>
+              <li>Opportunity stage updated</li>
+              <li>Revenue reported against marketing spend</li>
+            </ol>
+            <h4>Pipeline the integration drives</h4>
+            <ol class="flow">
+              <li>Appt confirmed</li>
+              <li>Paid appt</li>
+              <li>Show</li>
+              <li>Deposit</li>
+              <li>Payment complete</li>
+            </ol>
+            <h4>Done so far</h4>
+            <ul class="list">
+              <li>Working OAuth connection to the Nextech Select API (FHIR STU3), with authorization headers and practice identifier configured.</li>
+              <li>Appointment and payment records retrieved and parsed, including statuses such as booked, arrived, no-show and cancelled.</li>
+              <li>Incremental sync designed around the <code>_lastUpdated</code> parameter, and the newer FHIR R4 documentation reviewed for future migration.</li>
+              <li>Two workflows designed: patients and appointments, and payments.</li>
+            </ul>
+            <h4>Still being solved</h4>
+            <p>Reliable patient matching between Nextech and GoHighLevel, duplicate prevention and token refresh. Accurate matching is what makes the reporting goal possible: ROAS, attributed revenue divided by marketing spend.</p>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">n8n</span><span class="chip">Nextech Select API</span><span class="chip">FHIR</span><span class="chip">GoHighLevel</span><span class="chip">OAuth 2.0</span><span class="chip">Webhooks</span></div>
+          </article>
+
+          <article class="panel" id="p9" role="tabpanel" aria-labelledby="t9" hidden>
+            <div class="label">ClinicGrower · agency operations<span class="badge">Client work</span></div>
+            <h3>AI-Powered Multi-Client WordPress Publishing</h3>
+            <h4>The problem</h4>
+            <p>Formatting articles, writing SEO fields, preparing images and uploading to each client's site is slow, repetitive work, multiplied across every client.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Blog document lands in Google Drive</li>
+              <li>n8n identifies the client</li>
+              <li>AI structures the article as WordPress-ready HTML</li>
+              <li>AI writes SEO title, slug, excerpt, meta description, focus keyword, categories and tags</li>
+              <li>AI drafts image briefs, filenames and alt text</li>
+              <li>Client settings fetched: site, voice, categories</li>
+              <li>Images uploaded and post created through the WordPress REST API</li>
+              <li>Saved as a draft for review</li>
+            </ol>
+            <h4>How it works</h4>
+            <ul class="list">
+              <li>One central n8n workflow serves many client websites. A client configuration store holds each site's URL, API endpoint, credentials reference, brand voice, preferred categories and default calls to action.</li>
+              <li>Structured JSON output lets every field map independently into WordPress.</li>
+              <li>Nothing is published automatically. Every article waits as a draft for a person to review.</li>
+            </ul>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">n8n</span><span class="chip">OpenAI</span><span class="chip">Google Drive</span><span class="chip">WordPress REST API</span><span class="chip">AI image generation</span><span class="chip">Structured JSON</span></div>
+          </article>
+
+          <article class="panel" id="p10" role="tabpanel" aria-labelledby="t10" hidden>
+            <div class="label">ClinicGrower · medical practice clients<span class="badge">Client work</span></div>
+            <h3>A2P 10DLC Registration Readiness</h3>
+            <h4>The problem</h4>
+            <p>Gaps in consent language and website policies can delay SMS registration and disrupt how a practice contacts its patients.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Audit privacy policy and terms</li>
+              <li>Update SMS consent language</li>
+              <li>Separate marketing and non-marketing consent checkboxes</li>
+              <li>Review opt-in forms and contact pages</li>
+              <li>Prepare the registration bundle</li>
+              <li>Support the registration review</li>
+            </ol>
+            <h4>Also covered</h4>
+            <p>Troubleshooting phone integrations and campaign configurations so accounts are ready when registration is reviewed.</p>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">A2P 10DLC</span><span class="chip">Consent forms</span><span class="chip">Policy audits</span></div>
+          </article>
+
+          <article class="panel" id="p11" role="tabpanel" aria-labelledby="t11" hidden>
+            <div class="label">ClinicGrower · agency operations<span class="badge">Client work</span></div>
+            <h3>Stripe to Monday.com Client LTV Tracking</h3>
+            <h4>The goal</h4>
+            <p>Track what each client is worth over time by connecting billing data to the place the team already manages clients.</p>
+            <h4>The flow</h4>
+            <ol class="flow">
+              <li>Stripe billing data</li>
+              <li>Automation</li>
+              <li>Client record in Monday.com</li>
+              <li>Client lifetime value</li>
+            </ol>
+            <h4>Related reporting work</h4>
+            <p>Supported GA4, Google Tag Manager and BigQuery implementation, and worked on a GX ROI pipeline.</p>
+            <h4>Built with</h4>
+            <div class="chips"><span class="chip">Stripe</span><span class="chip">Monday.com</span><span class="chip">GA4</span><span class="chip">GTM</span><span class="chip">BigQuery</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="label">Experience</div>
+      <h2>Where I've done the work.</h2>
+      <div class="ledger">
+
+        <div class="row">
+          <div class="meta">Present<br>Port Elizabeth, SA</div>
+          <div>
+            <h3>Founder</h3>
+            <div class="org">INTEGREIGHT™</div>
+            <ul>
+              <li>Run an AI operations and automation consultancy for recruitment, accounting, law and other professional service firms.</li>
+              <li>Designed the service lines, the INTEGREIGHT Framework™ and four sector-specific automation systems.</li>
+              <li>Wrote the business plan, brand guidelines and go-to-market approach for the South African and UK markets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="meta">Aug 2025 – Present<br>Remote, US hours</div>
+          <div>
+            <h3>Systems &amp; Automation Specialist</h3>
+            <div class="org">ClinicGrower, US digital health marketing agency</div>
+            <ul>
+              <li>Building the Nextech to GoHighLevel integration that connects patient records, appointments, payments and revenue tracking.</li>
+              <li>Designed an AI-powered publishing workflow that serves multiple client WordPress sites from one n8n automation.</li>
+              <li>Built and configured GoHighLevel sub-accounts, funnels, pipelines, forms and patient communication workflows for healthcare and medical aesthetics clients, including Spanish and English acquisition funnels.</li>
+              <li>Prepared medical practices for A2P 10DLC registration: policy audits, SMS consent updates and registration bundles.</li>
+              <li>Integrated Claude and other LLMs into client workflows, and built automations in Make.com, Zapier, Airtable, Twilio and Mailgun.</li>
+              <li>Supported reporting in Looker Studio, Google Sheets, GA4, GTM and BigQuery, and tracked client lifetime value from Stripe into Monday.com.</li>
+              <li>Tested workflows for production reliability, and wrote SOPs and documentation for handover.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="meta">Mar 2023 – Aug 2025<br>South Africa</div>
+          <div>
+            <h3>IT Support</h3>
+            <div class="org">PE TVET College</div>
+            <ul>
+              <li>Provided IT support in an educational institution, troubleshooting problems and helping staff and students use digital tools.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="meta">Qualification<br>South Africa</div>
+          <div>
+            <h3>Diploma in Information Technology</h3>
+            <div class="org">Nelson Mandela University</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:44px" class="skillgrid">
+        <div><h3>Platforms</h3><div class="chips"><span class="chip">Go High Level</span><span class="chip">n8n</span><span class="chip">Make.com</span><span class="chip">Zapier</span><span class="chip">Airtable</span><span class="chip">Monday.com</span><span class="chip">Stripe</span></div></div>
+        <div><h3>APIs and integration</h3><div class="chips"><span class="chip">REST APIs</span><span class="chip">Webhooks</span><span class="chip">OAuth 2.0</span><span class="chip">FHIR</span><span class="chip">WordPress REST API</span></div></div>
+        <div><h3>Messaging</h3><div class="chips"><span class="chip">Twilio</span><span class="chip">Mailgun</span><span class="chip">WhatsApp</span><span class="chip">SMS</span></div></div>
+        <div><h3>AI</h3><div class="chips"><span class="chip">Claude</span><span class="chip">OpenAI API</span><span class="chip">LLM workflows</span></div></div>
+        <div><h3>Reporting</h3><div class="chips"><span class="chip">Looker Studio</span><span class="chip">Google Sheets</span><span class="chip">GA4</span><span class="chip">GTM</span><span class="chip">BigQuery</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="beyond">
+    <div class="wrap">
+      <div class="label">Beyond systems</div>
+      <h2>I also write.</h2>
+      <div class="writing">
+        <h3>Poetry, essays and a children's book</h3>
+        <p>I write poetry and reflective essays, and I'm working on a children's adventure book for ages 6 to 8 with memorable characters and a lot of humour.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <div class="label">Contact</div>
+      <h2>Tell me what's slowing your team down.</h2>
+      <p>I reply to every message. Send a short description of the process and the tools involved, and I'll suggest a first step.</p>
+      <div class="links">
+        <a href="mailto:lekinahgwangwa@gmail.com">Email <span>lekinahgwangwa@gmail.com</span></a>
+        <a href="https://linkedin.com/in/mlg23" target="_blank" rel="noopener">LinkedIn <span>linkedin.com/in/mlg23</span></a>
+        <a href="#projects">INTEGREIGHT™ projects <span>integreight.co.za</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Lekinah Mmathapelo Gwangwa</span>
+    <span>Port Elizabeth, South Africa</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function tick(){
+      var t = new Date().toLocaleTimeString('en-ZA',{hour:'2-digit',minute:'2-digit',timeZone:'Africa/Johannesburg'});
+      document.getElementById('clock').textContent = t + ' SAST';
+    }
+    tick(); setInterval(tick, 30000);
+  }catch(e){}
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(i){
+    tabs.forEach(function(t, j){
+      var on = i === j;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ select(i); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if(e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+      if(e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+      if(n !== null){ e.preventDefault(); select(n); tabs[n].focus(); }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
